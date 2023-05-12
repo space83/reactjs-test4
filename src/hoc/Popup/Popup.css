@@ -1,0 +1,19 @@
+.Popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-Index: 1000;
+    text-align: center;
+    background-color: lightblue;
+    color: red;
+}
+
+.Closed {
+    display: none;
+}
