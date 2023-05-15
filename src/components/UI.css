@@ -41,3 +41,9 @@
     background-color: red;
     width: 200px;  
 }
+
+.Error {
+    text-align: left;
+    color: red;
+    font-size: 15px;
+}
