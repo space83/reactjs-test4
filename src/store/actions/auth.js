@@ -7,12 +7,14 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId) => {
+export const authSuccess = (token, userId, email, displayName) => {
     console.log('authSuccess');
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
-        userId: userId
+        userId: userId,
+        email: email,
+        displayName: displayName
     };
 };
 
@@ -41,7 +43,7 @@ export const checkAuthTimeout = (expirationTime) => {
 };
 
 export const auth = (email, password) => {
-    return dispatch => {
+    return dispatch => {  
         dispatch(authStart());
         const authData = {
             email: email,
@@ -52,7 +54,20 @@ export const auth = (email, password) => {
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', authData)
         .then(response => {
             console.log(response);
-            dispatch(authSuccess(response.data.idToken, response.data.localId));
+            //dispatch(getUserData(response.data.idToken));
+            console.log('getUserData');
+            const infoData = {
+                idToken: response.data.idToken
+            }
+            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', infoData)
+            .then(response2 => {
+                console.log(response2);
+                //console.log('displayName' + response2.data.displayName);
+                dispatch(authSuccess(response.data.idToken, response.data.localId, response.data.email, response.data.displayName));
+            })
+            .catch(err => {
+                console.log(err);
+            });       
         })
         .catch(err => {
             console.log(err);
@@ -84,4 +99,20 @@ export const authCheckState = () => {
             }   
         }
     };
+};
+
+export const getUserData = (token) => {
+    console.log('getUserData');
+    //console.log(token);
+    const authData = {
+        idToken: token
+    }
+    axios.post('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', authData)
+    .then(response => {
+        console.log(response);
+        //dispatch(authSuccess(response.data.idToken, response.data.localId, response.data.email, response.data.displayName));
+    })
+    .catch(err => {
+        console.log(err);
+    });
 };

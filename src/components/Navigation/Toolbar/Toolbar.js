@@ -14,7 +14,7 @@ const toolbar = (props) => (
         
   <header className={classes.Blog}>    
     <nav>
-      <NavigationItems isAuthenticated={props.isAuth} />
+      <NavigationItems isAuthenticated={props.isAuth} email={props.email} />
     </nav>  
 
     <Popup />
