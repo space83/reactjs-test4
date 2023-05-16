@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import Aux from '../Aux_/Aux_';
-import Toolbar from '../../components/Toolbar/Toolbar';
-import GooglePage  from '../../components/GooglePage/GooglePage';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import { connect }  from 'react-redux';
 
 class Layout extends Component {
 
-render () {
-    return (
-        <Aux>
-            <Toolbar />              
-        </Aux>         
-        )
+    state = {
+        showSideDrawer: false
     }
+
+    render () {
+        return (
+            <Aux>
+                <Toolbar 
+                   isAuth={this.props.isAuthenticated} />              
+            </Aux>         
+            )
+        }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    };
+};
+
+export default connect(mapStateToProps) (Layout);

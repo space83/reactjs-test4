@@ -27,7 +27,7 @@ render () {
     return (
       <BrowserRouter>
         <div>
-          <Layout>              
+          <Layout>   
           </Layout>      
         </div>
       </BrowserRouter>

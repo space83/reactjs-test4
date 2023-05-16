@@ -188,10 +188,7 @@ class Login extends Component {
                     btnType="Danger">SIGN IN</Button>
                 </div>
 
-                <Switch>            
-                        <Route path = "/ForgetPwsd" component={ForgetPassword} />
-                        {/* <Redirect from="/" to="/Login" /> */}
-                </Switch>  
+ 
             </div>
         );     
     }

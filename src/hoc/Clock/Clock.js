@@ -20,7 +20,7 @@ const Clock = () => {
     };
 
     // Return a JSX element that displays the time
-    return <div>Time: {time}</div>;
+    return <li>Time: {time}</li>;
 }
  
 export default Clock;
