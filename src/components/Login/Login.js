@@ -42,7 +42,7 @@ class Login extends Component {
             }
         },
         formIsValid: false,
-        isSignup: true
+        isLogin: false
     }
 
     componentDidMount () {

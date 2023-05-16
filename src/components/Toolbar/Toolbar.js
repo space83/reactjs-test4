@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import classes from './Toolbar.css';
-import Clock from '../../../hoc/Clock/Clock';
-import Popup from '../../../hoc/Popup/Popup';
+import Clock from '../../hoc/Clock/Clock';
+import Popup from '../../hoc/Popup/Popup';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
-import GooglePage  from '../../GooglePage/GooglePage';
-import Login from  '../../Login/Login';
-import ForgetPassword from  '../../ForgetPassword/ForgetPassword';
+import GooglePage  from '../GooglePage/GooglePage';
+import Login from  '../Login/Login';
+import ForgetPassword from  '../ForgetPassword/ForgetPassword';
 
 class toolbar extends Component {
+
     render () {
       return (
         <div className={classes.Toolbar}>
@@ -22,8 +23,6 @@ class toolbar extends Component {
                 <NavLink
                   to={{
                     pathname: '/Login'
-                    // hash: '#submit',
-                    // search: '?quick-submit=true'
                   }}       
                   >Login
                 </NavLink>
