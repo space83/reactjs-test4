@@ -18,7 +18,10 @@ const navigationItems = ( props ) => (
             <ul>
                 <sideMenu />
             </ul>
-        </div>     
+        </div> 
+        
+        <div>
+        </div>    
     </div>
 
 );

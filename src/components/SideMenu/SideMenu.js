@@ -7,9 +7,9 @@ const sideMenu = ( props ) => (
     <div className={classes.Leftbar}>
         <nav className={classes.Blog}>
             <ul>
-                <NavigationItem link="/Login">Profile</NavigationItem>
-                <NavigationItem link="/Login">Change Password</NavigationItem>
-                <NavigationItem link="/Login">Products</NavigationItem>
+                <NavigationItem link="/MyProfile">Profile</NavigationItem>
+                <NavigationItem link="/ChangePwsd">Change Password</NavigationItem>
+                <NavigationItem link="/Product">Products</NavigationItem>
             </ul>
         </nav>              
     </div>

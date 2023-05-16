@@ -8,6 +8,7 @@ import Login from  '../../Login/Login';
 import ForgetPassword from  '../../ForgetPassword/ForgetPassword';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logout from  '../../Login/Logout/Logout';
+import Profile from  '../../Profile/Profile';
 
 const toolbar = (props) => (
   <div className={classes.Toolbar}>
@@ -24,6 +25,7 @@ const toolbar = (props) => (
     <Route path = "/Login" component={Login} />    
     <Route path = "/ForgetPwsd" component={ForgetPassword} />
     <Route path = "/Logout" component={Logout} />
+    <Route path = "/MyProfile" component={Profile} />
     <Route path = "/" component={GooglePage} />
     {/* <Redirect from="/" to="/Dashboard" /> */}
   </Switch>
