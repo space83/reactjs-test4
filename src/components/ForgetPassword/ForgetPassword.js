@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classes from '../UI.css';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
-
 import * as actions from '../../store/actions/index';
+
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import { connect } from 'react-redux';
@@ -83,13 +83,6 @@ class ForgetPassword extends Component {
 
 
     render () {
-        // let form = (            
-        //     <form>
-        //         <input className={classes.Input} type="text" name="name" placeholder="UserName" />    
-        //         <button className={classes.Button}>Reset Password</button>
-        //     </form>
-        // );
-
         const formElementsArray = [];
         for ( let key in this.state.controls ) {
             formElementsArray.push( {
@@ -114,10 +107,8 @@ class ForgetPassword extends Component {
 
         if (this.props.error) {
             errorMessage = (
-                <p>{this.props.error.message}</p>
+                <p className={classes.Error}>{this.props.error.message}</p>
             );
-        } else {
-            <p>Password successful reset. Please check your inbox.</p> 
         }
 
         return (
@@ -125,9 +116,9 @@ class ForgetPassword extends Component {
                 <p>Forget Password</p>
                 <div className={classes.ContactData}>
                     <h5>Reset Password</h5>
-                    {errorMessage}
                     <form>
                         {form}  
+                        {errorMessage}
                         <NavLink
                         to={{
                             pathname: '/Login'
@@ -138,15 +129,14 @@ class ForgetPassword extends Component {
                     <Button disabled={!this.state.formIsValid}
                     clicked={this.submitHandler} 
                     btnType="Danger">Reset Password</Button>
-
                 </div>
             </div>
-        );
-        
+        );        
     }
 }
 
 const mapStateToProps = state => {
+    console.log('mapStateToProps');
     return {
         //error: state.reset.error
         //authRedirectPath: state.auth.authRedirectPath

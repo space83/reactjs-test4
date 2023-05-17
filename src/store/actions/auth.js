@@ -59,6 +59,8 @@ export const auth = (email, password) => {
             const infoData = {
                 idToken: response.data.idToken
             }
+
+            //retrieve displayName but not working
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', infoData)
             .then(response2 => {
                 console.log(response2);
@@ -99,20 +101,4 @@ export const authCheckState = () => {
             }   
         }
     };
-};
-
-export const getUserData = (token) => {
-    console.log('getUserData');
-    //console.log(token);
-    const authData = {
-        idToken: token
-    }
-    axios.post('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', authData)
-    .then(response => {
-        console.log(response);
-        //dispatch(authSuccess(response.data.idToken, response.data.localId, response.data.email, response.data.displayName));
-    })
-    .catch(err => {
-        console.log(err);
-    });
 };

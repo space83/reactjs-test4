@@ -7,10 +7,6 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 
 class Layout extends Component {
 
-    state = {
-        showSideDrawer: false
-    }
-
     render () {
         return (
             <Aux>

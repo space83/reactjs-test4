@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './Toolbar.css';
-import Clock from '../../../hoc/Clock/Clock';
 import Popup from '../../../hoc/Popup/Popup';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import GooglePage  from '../../GooglePage/GooglePage';
@@ -9,27 +8,42 @@ import ForgetPassword from  '../../ForgetPassword/ForgetPassword';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logout from  '../../Login/Logout/Logout';
 import Profile from  '../../Profile/Profile';
+import ChangePwsd from  '../../ChangePwsd/ChangePwsd';
+import SideMenu from  '../../SideMenu/SideMenu';
+import Products from  '../../Products/Products';
 
 const toolbar = (props) => (
-  <div className={classes.Toolbar}>
-        
-  <header className={classes.Blog}>    
-    <nav>
-      <NavigationItems isAuthenticated={props.isAuth} email={props.email} />
-    </nav>  
 
-    <Popup />
-  </header>
+    <div className={classes.Toolbar}>        
+      <header className={classes.Blog}>    
+        <nav>
+          <NavigationItems isAuthenticated={props.isAuth} email={props.email} />
+        </nav>        
+      </header>
 
-  <Switch>            
-    <Route path = "/Login" component={Login} />    
-    <Route path = "/ForgetPwsd" component={ForgetPassword} />
-    <Route path = "/Logout" component={Logout} />
-    <Route path = "/MyProfile" component={Profile} />
-    <Route path = "/" component={GooglePage} />
-    {/* <Redirect from="/" to="/Dashboard" /> */}
-  </Switch>
-  </div>
+      <div className={classes.content}>        
+        {props.isAuth ? (
+                  <div className={classes.left}>                    
+                    <SideMenu /> 
+                  </div>
+        ): null}  
+
+        <div className={classes.right}> 
+          <Switch>            
+            <Route path = "/Login" component={Login} />    
+            <Route path = "/ForgetPwsd" component={ForgetPassword} />
+            <Route path = "/Logout" component={Logout} />
+            <Route path = "/MyProfile" component={Profile} link='asd' />
+            <Route path = "/ChangePwsd" component={ChangePwsd} />
+            <Route path = "/Product" component={Products} />
+            <Route path = "/" component={GooglePage} />
+          </Switch>
+        </div>
+      </div>
+
+      <Popup />
+    </div> 
+
 );
 
 export default toolbar;

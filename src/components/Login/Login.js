@@ -6,7 +6,6 @@ import * as actions from '../../store/actions/index';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
-import SideMenu from '../../components/SideMenu/SideMenu';
 
 class Login extends Component {
 
@@ -119,54 +118,36 @@ class Login extends Component {
                 changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
         ) );
 
-        // let errorMessage = null;
+        let errorMessage = null;
 
-        // if (this.props.error) {
-        //     errorMessage = (
-        //         <p>{this.props.error.message}</p>
-        //     );
-        // }
+        if (this.props.error) {
+            errorMessage = (
+                <p className={classes.Error}>{this.props.error.message}</p>
+            );
+        }
 
         // let authRedirect = null;
         // if (this.props.isAuthenticated) {
         //     authRedirect = <Redirect to={this.props.authRedirectPath}/>
         // }
-
-        const login = (
-            <div className={classes.ContactData}>
-                <h5>Sign in to start your session</h5>
-                {/* {authRedirect} */}
-                {/* {errorMessage} */}
-                <form>
-                    {form} 
-                    <NavLink
-                    to={{
-                        pathname: '/ForgetPwsd'
-                    }}       
-                    >I forgot my password
-                    </NavLink> 
-                </form>
-                <Button disabled={!this.state.formIsValid}
-                clicked={this.submitHandler} //{this.switchAuthModeHandler} --> THIS NOT USED!
-                btnType="Danger">Sign In</Button>
-            </div> 
-        );
-     
+   
 
         return (
-            <div className={classes.row}>
-                <div className={classes.left}>
+            <div>
+                {/* <div className={classes.left}>
                     {this.props.isAuthenticated ? <SideMenu /> : 'Log-in'} 
-                </div>
+                </div> */}
 
                 {this.props.isAuthenticated ? null : (
                     <div>
+                        <p>Log-In</p>
                         <div className={classes.ContactData}>
                             <h5>Sign in to start your session</h5>
                             {/* {authRedirect} */}
-                            {/* {errorMessage} */}
+                            
                             <form>
                                 {form} 
+                                {errorMessage}
                                 <NavLink
                                 to={{
                                     pathname: '/ForgetPwsd'

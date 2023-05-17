@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect }  from 'react-redux';
+
 
 const profile = ( props ) => (
     <div>
@@ -6,4 +8,6 @@ const profile = ( props ) => (
     </div>
 );
 
-export default profile;
+
+
+export default (profile);

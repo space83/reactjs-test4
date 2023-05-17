@@ -16,6 +16,7 @@ export const resetSuccess = (email) => {
 };
 
 export const resetFail = (error) => {
+    console.log('resetFail');
     return {
         type: actionTypes.PASSWORD_RESET_FAIL,
         error: error

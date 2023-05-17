@@ -34,3 +34,15 @@
     color: #fa923f;
 }
 
+.content {
+    display: flex;
+}
+  
+.left {
+flex: 20%;
+text-align: left;
+}
+
+.right {
+    flex: 100%;
+}

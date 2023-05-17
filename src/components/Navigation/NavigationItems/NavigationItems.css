@@ -1,8 +1,12 @@
 .column {
-    flex: 50%;
-  }
-  
-  /* Clear floats after the columns */
-  .row {
-    display: flex;
-  }
+  flex: 50%;
+}
+
+.row {
+  display: flex;
+}
+
+.rowSide {
+  display: flex;
+  background-color: red; 
+}
