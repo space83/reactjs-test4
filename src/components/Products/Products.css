@@ -1,0 +1,39 @@
+.column1 {
+    float: left;
+    width: 20%;
+}
+
+.column {
+    float: left;
+    width: 40%;
+    display: inline-flex;
+}
+
+.row {
+    /* color:yellow;
+    background-color: brown; */
+}
+
+.line { 
+    position: relative; 
+    color: blue;
+} 
+
+.line::before, 
+.line::after { 
+    content: ""; 
+    position: absolute; 
+    top: 50%; 
+    left: 0; 
+    right: 0; 
+    height: 1px; 
+    background-color: blue 
+} 
+
+.line::before { 
+    margin-top: -1.5em; 
+} 
+
+.line::after { 
+    margin-top: 1.5em; 
+} 
