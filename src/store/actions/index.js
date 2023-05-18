@@ -2,7 +2,7 @@ export {
     auth,
     logout,
     setAuthRedirectPath,
-    authCheckState
+    authCheckState  
 } from './auth';
 
 export {
@@ -10,3 +10,7 @@ export {
     resetSuccess,
     resetFail    
 } from './reset';
+
+export {
+    change
+} from './change';

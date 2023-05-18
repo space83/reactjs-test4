@@ -15,7 +15,7 @@ class Login extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Mail Address'
+                    placeholder: 'UserName'
                 },
                 value: '',
                 validation: {
@@ -45,8 +45,8 @@ class Login extends Component {
     }
 
     componentDidMount () {
+        //console.log('login mount')
     }
-
     
     checkValidity ( value, rules ) {
         let isValid = true;
@@ -87,11 +87,9 @@ class Login extends Component {
         }
 
         this.setState( { controls: updatedControls, formIsValid: formIsValid } );
-        console.log(formIsValid);
     }
 
     submitHandler = (event) => {
-        console.log("submithandler");
         event.preventDefault();
         this.props.onAuth( this.state.controls.email.value, this.state.controls.password.value );
         
@@ -129,30 +127,24 @@ class Login extends Component {
         // let authRedirect = null;
         // if (this.props.isAuthenticated) {
         //     authRedirect = <Redirect to={this.props.authRedirectPath}/>
-        // }
-   
+        // }   
 
         return (
             <div>
-                {/* <div className={classes.left}>
-                    {this.props.isAuthenticated ? <SideMenu /> : 'Log-in'} 
-                </div> */}
-
                 {this.props.isAuthenticated ? null : (
                     <div>
                         <p>Log-In</p>
                         <div className={classes.ContactData}>
                             <h5>Sign in to start your session</h5>
-                            {/* {authRedirect} */}
-                            
+                            {/* {authRedirect} */}                            
                             <form>
                                 {form} 
                                 {errorMessage}
-                                <NavLink
-                                to={{
-                                    pathname: '/ForgetPwsd'
-                                }}       
-                                >I forgot my password
+                                    <NavLink
+                                    to={{
+                                        pathname: '/ForgetPwsd'
+                                    }}       
+                                    >I forgot my password
                                 </NavLink> 
                             </form>
                             <Button disabled={!this.state.formIsValid}
@@ -160,26 +152,22 @@ class Login extends Component {
                             btnType="Danger">Sign In</Button>
                         </div> 
                     </div> 
-                )} 
-            
+                )}             
             </div>
         );     
     }
 }
 
-
 const mapStateToProps = state => {
     return {
-        // loading: state.auth.loading,
         error: state.auth.error,
         isAuthenticated: state.auth.token !== null
-        //buildingBurger: state.burgerBuilder.building,
         //authRedirectPath: state.auth.authRedirectPath
     };
 };
 
 const mapDispatchToProps = dispatch => {
-    console.log("mapDispatchToProps");
+    //console.log("mapDispatchToProps");
     return {
         onAuth: ( email, password ) => dispatch( actions.auth( email, password ) )    
     };

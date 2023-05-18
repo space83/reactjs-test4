@@ -3,21 +3,21 @@ import { updateObject } from '../utility';
 
 const initialState = {
     token: null,
+    userId: null,
+    email: null,
     error: null
 };
 
-const resetStart = ( state, action ) => {
-    return updateObject( state, { error: null } );
-};
-
-const resetSuccess = (state, action) => {
+const changeSuccess = (state, action) => {
     return updateObject( state, { 
         token: action.idToken,
+        userId: action.userId,
+        email: action.email,
         error: null
      } );
 };
 
-const resetFail = (state, action) => {
+const changeFail = (state, action) => {
     return updateObject( state, {
         error: action.error
     });
@@ -25,9 +25,8 @@ const resetFail = (state, action) => {
 
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
-        case actionTypes.PASSWORD_RESET_START: return resetStart(state, action);
-        case actionTypes.PASSWORD_RESET_SUCCESS: return resetSuccess(state, action);
-        case actionTypes.PASSWORD_RESET_FAIL: return resetFail(state, action);
+        case actionTypes.CHANGE_PASSWORD_SUCCESS: return changeSuccess(state, action);
+        case actionTypes.CHANGE_PASSWORD_FAIL: return changeFail(state, action);
         default:
             return state;
     }

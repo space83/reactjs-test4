@@ -55,7 +55,6 @@ export const auth = (email, password) => {
         .then(response => {
             console.log(response);
             //dispatch(getUserData(response.data.idToken));
-            console.log('getUserData');
             const infoData = {
                 idToken: response.data.idToken
             }

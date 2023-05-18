@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Aux from '../Aux_/Aux_';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import { connect }  from 'react-redux';
-import classes from './Layout.css';
-import SideMenu from '../../components/SideMenu/SideMenu';
 
 class Layout extends Component {
 

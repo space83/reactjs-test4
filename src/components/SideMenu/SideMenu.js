@@ -1,18 +1,24 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from 'react';
 import classes from './SideMenu.css';
 import NavigationItem from '../Navigation/NavigationItems/NavigationItem/NavigationItem';
 
-const sideMenu = ( props ) => (
-    <div className={classes.Leftbar}>
-        <nav className={classes.Blog}>
-            <ul>
-                <NavigationItem link="/MyProfile">Profile</NavigationItem>
-                <NavigationItem link="/ChangePwsd">Change Password</NavigationItem>
-                <NavigationItem link="/Product">Products</NavigationItem>
-            </ul>
-        </nav>              
-    </div>
-);
+class SideMenu extends Component {    
 
-export default sideMenu;
+    render () {
+        return (
+            <div>
+                <div className={classes.Leftbar}>            
+                    <nav className={classes.Blog}> 
+                        <ul>
+                            <NavigationItem link="/MyProfile">Profile</NavigationItem><br />
+                            <NavigationItem link="/ChangePwsd">Change Password</NavigationItem><br />
+                            <NavigationItem link="/Product">Products</NavigationItem>
+                        </ul>
+                    </nav>              
+                </div>
+            </div>
+        )
+    }
+};
+
+export default SideMenu;

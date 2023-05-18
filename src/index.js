@@ -10,11 +10,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import authReducer from './store/reducers/auth';
+import resetReducer from './store/reducers/reset';
+import changeReducer from './store/reducers/change';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  reset: resetReducer,
+  change: changeReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(

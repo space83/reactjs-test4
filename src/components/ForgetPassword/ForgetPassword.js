@@ -109,6 +109,10 @@ class ForgetPassword extends Component {
             errorMessage = (
                 <p className={classes.Error}>{this.props.error.message}</p>
             );
+        } else if (this.props.isSuccessful) {
+            errorMessage = (
+                <p className={classes.Info}>Password successful reset. Please check your email.</p>
+            );
         }
 
         return (
@@ -138,8 +142,8 @@ class ForgetPassword extends Component {
 const mapStateToProps = state => {
     console.log('mapStateToProps');
     return {
-        //error: state.reset.error
-        //authRedirectPath: state.auth.authRedirectPath
+        error: state.reset.error,
+        isSuccessful: state.reset.token !== null
     };
 };
 

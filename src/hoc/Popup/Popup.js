@@ -13,7 +13,6 @@ const Popup = () => {
     const handleShow = () => 
     {
         setShowPopup(false);
-        console.log("closed popup");
     }
 
     const popupTrigger = {

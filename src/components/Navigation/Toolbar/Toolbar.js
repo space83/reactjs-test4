@@ -23,7 +23,7 @@ const toolbar = (props) => (
 
       <div className={classes.content}>        
         {props.isAuth ? (
-                  <div className={classes.left}>                    
+                  <div className={classes.left}>   
                     <SideMenu /> 
                   </div>
         ): null}  
@@ -33,17 +33,14 @@ const toolbar = (props) => (
             <Route path = "/Login" component={Login} />    
             <Route path = "/ForgetPwsd" component={ForgetPassword} />
             <Route path = "/Logout" component={Logout} />
-            <Route path = "/MyProfile" component={Profile} link='asd' />
+            <Route path = "/MyProfile" component={Profile} />
             <Route path = "/ChangePwsd" component={ChangePwsd} />
             <Route path = "/Product" component={Products} />
             <Route path = "/" component={GooglePage} />
           </Switch>
         </div>
       </div>
-
-      <Popup />
     </div> 
-
 );
 
 export default toolbar;

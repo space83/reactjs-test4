@@ -2,7 +2,6 @@ import React from 'react';
 import Clock from '../../../hoc/Clock/Clock';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import SideMenu from '../../SideMenu/SideMenu';
 
 const navigationItems = ( props ) => (
     <div className={classes.row}>
