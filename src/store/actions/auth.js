@@ -56,10 +56,9 @@ export const auth = (email, password) => {
             console.log(response);
             //dispatch(getUserData(response.data.idToken));
             const infoData = {
-                idToken: response.data.idToken
+                idToken: response.data.idToken             
             }
 
-            //retrieve displayName but not working
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', infoData)
             .then(response2 => {
                 console.log(response2);

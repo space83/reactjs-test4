@@ -15,13 +15,14 @@ export const change = ( password, newPassword, email ) => {
 
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', authData)
         .then(response => {
+
+            //changepass process
             const changePassData = {
                 idToken: response.data.idToken,
                 password: newPassword,
                 returnSecureToken: true
             }  
 
-            //changepass process
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', changePassData)
             .then(response => {
                 console.log(response);
@@ -56,4 +57,24 @@ export const changeFail = (error) => {
         type: actionTypes.CHANGE_PASSWORD_FAIL,
         error: error
     };
+};
+
+// for testing
+export const updateDisplayName = (idToken, displayName) => {
+    const payLoad = {
+        idToken: idToken,
+        displayName: displayName,
+        photoUrl: null,
+        returnSecureToken: true
+    }
+
+    axios.post('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', payLoad)
+    .then(response => {
+        console.log(response); 
+        return {
+            type: actionTypes.UPDATE_DISPLAY_NAME,
+            idToken: idToken,
+            displayName: displayName
+        };
+    })
 };

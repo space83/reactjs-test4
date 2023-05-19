@@ -9,7 +9,7 @@ class Profile extends Component {
                 <p>My Profile</p>
                 <div className={classes.ChangePass}>
                     <label>
-                        User Name: displayName
+                        User Name: {this.props.displayName}
                         <br />
                         Email: {this.props.email}
                     </label>        
@@ -22,6 +22,7 @@ class Profile extends Component {
 const mapStateToProps = state => {
     return {
        email: state.auth.email,
+       displayName: state.auth.displayName,
        name: 'My Profile'
     };
 }
