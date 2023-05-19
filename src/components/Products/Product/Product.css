@@ -1,0 +1,47 @@
+.imgsize {
+    height: 210px;
+    width: 280px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid white;
+    padding: 10px; 
+    text-align: center;
+    color: dar;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%
+}
+
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+} 
+
+.table th {
+    padding: 12px 15px;
+    width: 20%;
+    text-align: left;
+}
+
+.table td {
+    padding: 12px 15px;
+    /* width: 10%; */
+}
+
+.variance {
+    background-color: lightblue;
+    border: 7px solid lightblue;
+    display: block;
+    width: 98%;
+    font-weight: bold;
+    margin-left: 10px;
+}

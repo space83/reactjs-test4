@@ -2,11 +2,7 @@
     height: 63px;
     width: 100%;    
     position: absolute;
-    /* top: 10; */
-    /* left: 10; */
     background-color: lightblue;
-    /* display: flex; */
-    /* justify-content: space-between; */
     padding: 20px 20px;
     box-sizing: border-box;
     z-index: 90;

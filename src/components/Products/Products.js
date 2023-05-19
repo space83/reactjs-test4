@@ -25,7 +25,7 @@ class Products extends Component {
             },
             {
                 id: 3, 
-                name: 'Renault Megane RS 250 Cup', 
+                name: 'Volkswagen Golf GTI Mk6', 
                 description:'lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen lorem ipsum Volkswagen', 
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbIRxw8xqxqHn0rvUx7EUsI_u4Mw2EmpZ-Q&usqp=CAU',
                 price1: 71800, 
@@ -39,7 +39,7 @@ class Products extends Component {
     }
 
     postSelectedHandler = ( id ) => {
-        this.props.history.push( '/Product/' + id );        
+        this.props.history.push( '/Product/' + id );
     }
 
     render () {
@@ -60,7 +60,7 @@ class Products extends Component {
 
         let list = (
             //console.log(id);
-            <table className={classes.table}>   
+            <table className={classes.table}>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -79,8 +79,6 @@ class Products extends Component {
             <div>                
                 <p>Products</p>                
                 {list}
-                {/* {Product} */}
-                <Route path={this.props.match.url + '/:id'} exact component={Product} />
             </div>
         )
     }

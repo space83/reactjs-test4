@@ -29,3 +29,10 @@
     background-color: red;
     width: 200px;  
 }
+
+.Normal {
+    color: black;
+    background-color: lightseagreen;
+    width: 200px;  
+    float: right;
+}

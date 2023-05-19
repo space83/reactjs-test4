@@ -1,12 +1,7 @@
 .column {
-  flex: 50%;
+  flex: 20%;
 }
 
 .row {
   display: flex;
-}
-
-.rowSide {
-  display: flex;
-  background-color: red; 
 }

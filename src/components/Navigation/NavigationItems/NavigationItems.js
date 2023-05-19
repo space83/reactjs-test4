@@ -8,7 +8,7 @@ const navigationItems = ( props ) => (
         <div className={classes.column}>
             {!props.isAuthenticated ? null : <p>Hello {props.email} </p>}          
         </div>
-        <div className={classes.column}>
+        <div>
             <ul>
                 <Clock />
                 {!props.isAuthenticated
