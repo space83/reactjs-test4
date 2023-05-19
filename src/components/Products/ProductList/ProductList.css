@@ -1,0 +1,14 @@
+.imgsize {
+    height: 110px;
+    width: 180px;
+}
+
+.textlink {
+    width: 250px;
+    padding: 16px;
+    text-align: left;
+    color: blue;
+    text-decoration: underline;
+    margin: 10px;
+    cursor: pointer;
+}

@@ -1,14 +1,14 @@
-import React from 'react';
-import classes from './Product.css';
-import './Product.css';
+import React, { Component } from 'react';
+//import classes from './ProductList.css';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
-const product = (props) => (    
-    <div>        
-        <div className={classes.column1}>{props.name}</div>
-        <div className={classes.column}>{props.description}</div>
-        <div className={classes.column1}>{props.carPhoto}</div>
-        <div className={classes.column1}>{props.price1}</div>
-    </div>
-);
+class Product extends Component {
+  
+    render () {
+        return (
+           <p>Product</p>
+        );
+    }
+}
 
-export default product;
+export default Product;

@@ -11,6 +11,7 @@ import Profile from  '../../Profile/Profile';
 import ChangePwsd from  '../../ChangePwsd/ChangePwsd';
 import SideMenu from  '../../SideMenu/SideMenu';
 import Products from  '../../Products/Products';
+import Product from  '../../Products/Product/Product';
 
 const toolbar = (props) => (
 
@@ -35,7 +36,8 @@ const toolbar = (props) => (
             <Route path = "/Logout" component={Logout} />
             <Route path = "/MyProfile" component={Profile} />
             <Route path = "/ChangePwsd" component={ChangePwsd} />
-            <Route path = "/Product" component={Products} />
+            <Route path = "/Product" exact component={Products} />
+            <Route path = "/Product/:id"component={Product} />
             <Route path = "/" component={GooglePage} />
           </Switch>
         </div>

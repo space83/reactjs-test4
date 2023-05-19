@@ -10,6 +10,7 @@ class SideMenu extends Component {
                 <div className={classes.Leftbar}>            
                     <nav className={classes.Blog}> 
                         <ul>
+                            <br />
                             <NavigationItem link="/MyProfile">Profile</NavigationItem><br />
                             <NavigationItem link="/ChangePwsd">Change Password</NavigationItem><br />
                             <NavigationItem link="/Product">Products</NavigationItem>
