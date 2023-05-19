@@ -12,25 +12,50 @@ import ChangePwsd from  '../../ChangePwsd/ChangePwsd';
 import SideMenu from  '../../SideMenu/SideMenu';
 import Products from  '../../Products/Products';
 import Product from  '../../Products/Product/Product';
+import Unauthorized from  '../../Unauthorized/Unauthorized';
 
-const toolbar = (props) => (
+class Toolbar extends Component {
 
-    <div className={classes.Toolbar}>        
+  render () {
+
+    let routes = (
+      <Switch>            
+        <Route path = "/Login" component={Login} />    
+        <Route path = "/ForgetPwsd" component={ForgetPassword} />
+        <Route path = "/" exact component={GooglePage} />
+        <Route path = "/" component={Unauthorized} />
+    </Switch>
+    );
+
+    if (this.props.isAuth) {
+      routes = (
+        <Switch>            
+          <Route path = "/Logout" component={Logout} />
+          <Route path = "/MyProfile" component={Profile} />
+          <Route path = "/ChangePwsd" component={ChangePwsd} />
+          <Route path = "/Product" exact component={Products} />
+          <Route path = "/Product/:id"component={Product} />
+      </Switch>
+      );
+    }
+
+    return (
+      <div className={classes.Toolbar}>        
       <header className={classes.Blog}>    
         <nav>
-          <NavigationItems isAuthenticated={props.isAuth} email={props.email} />
+          <NavigationItems isAuthenticated={this.props.isAuth} email={this.props.email} />
         </nav>        
       </header>
 
       <div className={classes.content}>        
-        {props.isAuth ? (
+        {this.props.isAuth ? (
                   <div className={classes.left}>   
                     <SideMenu /> 
                   </div>
         ): null}  
 
         <div className={classes.right}> 
-          <Switch>            
+          {/* <Switch>
             <Route path = "/Login" component={Login} />    
             <Route path = "/ForgetPwsd" component={ForgetPassword} />
             <Route path = "/Logout" component={Logout} />
@@ -39,10 +64,14 @@ const toolbar = (props) => (
             <Route path = "/Product" exact component={Products} />
             <Route path = "/Product/:id"component={Product} />
             <Route path = "/" component={GooglePage} />
-          </Switch>
+          </Switch> */}
+          {routes}
         </div>
       </div>
     </div> 
-);
+    ) 
+  }
+}
 
-export default toolbar;
+
+export default Toolbar;

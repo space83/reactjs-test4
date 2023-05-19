@@ -22,8 +22,8 @@ class Profile extends Component {
 const mapStateToProps = state => {
     return {
        email: state.auth.email,
-       displayName: state.auth.displayName,
-       name: 'My Profile'
+       displayName: state.auth.displayName
+       //isAuthenticated: state.auth.token !== null
     };
 }
 
