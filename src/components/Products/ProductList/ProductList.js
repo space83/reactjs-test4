@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classes from './ProductList.css';
 import ShowMoreText from "react-show-more-text";
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
-//import NavigationItem from '../../Navigation/NavigationItems/NavigationItem/NavigationItem';
 
 class ProductList extends Component {
     executeOnClick(isExpanded) {
@@ -11,11 +10,12 @@ class ProductList extends Component {
 
     render () {
         let truncate = (
-            <ShowMoreText
+            <ShowMoreText               
                 lines={3}
                 more=" "
                 onClick={this.executeOnClick}
                 expanded={false}
+                anchorClass={classes.textjustify}
                 >               
                     {this.props.description}
             </ShowMoreText>
@@ -27,7 +27,7 @@ class ProductList extends Component {
                     {this.props.name}
                 </td>
                 <td>
-                    {  truncate }
+                    { truncate }
                 </td>
                 <td>
                     <img className={classes.imgsize} src={this.props.carPhoto} />

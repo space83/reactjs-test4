@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Toolbar.css';
-import Popup from '../../../hoc/Popup/Popup';
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import GooglePage  from '../../GooglePage/GooglePage';
 import Login from  '../../Login/Login';
 import ForgetPassword from  '../../ForgetPassword/ForgetPassword';
@@ -13,6 +12,7 @@ import SideMenu from  '../../SideMenu/SideMenu';
 import Products from  '../../Products/Products';
 import Product from  '../../Products/Product/Product';
 import Unauthorized from  '../../Unauthorized/Unauthorized';
+import Invalid from  '../../Invalid/Invalid';
 
 class Toolbar extends Component {
 
@@ -20,8 +20,8 @@ class Toolbar extends Component {
 
     let routes = (
       <Switch>            
-        <Route path = "/Login" component={Login} />    
-        <Route path = "/ForgetPwsd" component={ForgetPassword} />
+        <Route path = "/Login" exact component={Login} />    
+        <Route path = "/ForgetPwsd" exact component={ForgetPassword} />
         <Route path = "/" exact component={GooglePage} />
         <Route path = "/" component={Unauthorized} />
     </Switch>
@@ -30,11 +30,13 @@ class Toolbar extends Component {
     if (this.props.isAuth) {
       routes = (
         <Switch>            
-          <Route path = "/Logout" component={Logout} />
-          <Route path = "/MyProfile" component={Profile} />
-          <Route path = "/ChangePwsd" component={ChangePwsd} />
+          <Route path = "/Logout" exact component={Logout} />
+          <Route path = "/MyProfile" exact component={Profile} />
+          <Route path = "/ChangePwsd" exact component={ChangePwsd} />
           <Route path = "/Product" exact component={Products} />
-          <Route path = "/Product/:id"component={Product} />
+          <Route path = "/Product/:id" exact component={Product} />
+          <Route path = "/Product/4" component={Invalid} />
+          {/* <Route render={() => <h1>Invalid</h1>} /> */}
       </Switch>
       );
     }
@@ -43,7 +45,7 @@ class Toolbar extends Component {
       <div className={classes.Toolbar}>        
       <header className={classes.Blog}>    
         <nav>
-          <NavigationItems isAuthenticated={this.props.isAuth} email={this.props.email} />
+          <NavigationItems isAuthenticated={this.props.isAuth} email={this.props.email} displayName={this.props.displayName} />
         </nav>        
       </header>
 
@@ -55,16 +57,6 @@ class Toolbar extends Component {
         ): null}  
 
         <div className={classes.right}> 
-          {/* <Switch>
-            <Route path = "/Login" component={Login} />    
-            <Route path = "/ForgetPwsd" component={ForgetPassword} />
-            <Route path = "/Logout" component={Logout} />
-            <Route path = "/MyProfile" component={Profile} />
-            <Route path = "/ChangePwsd" component={ChangePwsd} />
-            <Route path = "/Product" exact component={Products} />
-            <Route path = "/Product/:id"component={Product} />
-            <Route path = "/" component={GooglePage} />
-          </Switch> */}
           {routes}
         </div>
       </div>

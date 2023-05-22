@@ -6,7 +6,7 @@ import classes from './NavigationItems.css';
 const navigationItems = ( props ) => (
     <div className={classes.row}>
         <div className={classes.column}>
-            {!props.isAuthenticated ? null : <p>Hello {props.email} </p>}          
+            {!props.isAuthenticated ? null : <p>Hello {props.displayName} </p>}          
         </div>
         <div>
             <ul>

@@ -10,7 +10,9 @@ class Layout extends Component {
             <Aux>
                 <Toolbar 
                    isAuth={this.props.isAuthenticated} 
-                   email={this.props.email} />          
+                   email={this.props.email}
+                   displayName={this.props.displayName}
+                   />          
             </Aux>         
             )
         }
@@ -19,7 +21,8 @@ class Layout extends Component {
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
-        email: state.auth.email
+        email: state.auth.email,
+        displayName: state.auth.displayName
     };
 };
 

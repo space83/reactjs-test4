@@ -12,3 +12,10 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.textjustify {
+    text-align: justify;
+    text-justify: inter-word;
+    display: table-row;
+    text-align-last: left;
+}

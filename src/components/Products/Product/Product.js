@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './Product.css';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Button from '../../UI/Button/Button';
+import Invalid from  '../../Invalid/Invalid';
 
 class Product extends Component {
     state = {
@@ -30,23 +31,23 @@ class Product extends Component {
                 price1: 71800, 
                 price2: 81800
             }
-        ],
+        ]
     }
 
     componentDidMount () {
-       
+        //console.log("product did mount");
+
     }
 
     backHandler = (event) => {
         console.log("backHandler");
         event.preventDefault();
-        this.props.history.push( '/Product/' );
-        
+        this.props.history.push( '/Product/' );        
     }
 
     render () {
 
-        let selectedcar = this.state.cars[this.props.match.params.id - 1];
+        let selectedcar = this.state.cars[this.props.match.params.id - 1];    
 
         let page = (
             <div>
@@ -82,7 +83,8 @@ class Product extends Component {
         return (
             <div>
                 <p>Product</p>                
-                {page}
+                    {page}
+                    {/* <Invalid /> */}
             </div>           
         );
     }
