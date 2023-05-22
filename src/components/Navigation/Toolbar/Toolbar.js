@@ -12,7 +12,6 @@ import SideMenu from  '../../SideMenu/SideMenu';
 import Products from  '../../Products/Products';
 import Product from  '../../Products/Product/Product';
 import Unauthorized from  '../../Unauthorized/Unauthorized';
-import Invalid from  '../../Invalid/Invalid';
 
 class Toolbar extends Component {
 
@@ -35,8 +34,6 @@ class Toolbar extends Component {
           <Route path = "/ChangePwsd" exact component={ChangePwsd} />
           <Route path = "/Product" exact component={Products} />
           <Route path = "/Product/:id" exact component={Product} />
-          <Route path = "/Product/4" component={Invalid} />
-          {/* <Route render={() => <h1>Invalid</h1>} /> */}
       </Switch>
       );
     }

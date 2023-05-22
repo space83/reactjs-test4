@@ -16,8 +16,7 @@ class ProductList extends Component {
                 onClick={this.executeOnClick}
                 expanded={false}
                 anchorClass={classes.textjustify}
-                >               
-                    {this.props.description}
+                >{this.props.description}            
             </ShowMoreText>
         );
 

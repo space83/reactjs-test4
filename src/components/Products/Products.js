@@ -15,6 +15,7 @@ class Products extends Component {
         axios.get('https://react-my-burger-ac7a3-default-rtdb.asia-southeast1.firebasedatabase.app/cars.json')
         .then(response => {
             this.setState({cars: response.data})
+            //console.log('axios-1: ' + response.data);
         })
         .catch( error => {
             this.setState( { error: true } );
