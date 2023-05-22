@@ -54,20 +54,12 @@ export const auth = (email, password) => {
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', authData)
         .then(response => {
             console.log(response);
-            //dispatch(getUserData(response.data.idToken));
-            const infoData = {
-                idToken: response.data.idToken             
-            }
-
-            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyA5ReTJAg-8nGiJwFI4AYBvQF2wKBZoyqM', infoData)
-            .then(response2 => {
-                console.log(response2);
-                //console.log('displayName' + response2.data.displayName);
+                const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
+                localStorage.setItem('token', response.data.idToken);
+                localStorage.setItem('expirationDate', expirationDate);
+                localStorage.setItem('userId', response.data.localId);
                 dispatch(authSuccess(response.data.idToken, response.data.localId, response.data.email, response.data.displayName));
-            })
-            .catch(err => {
-                console.log(err);
-            });       
+                dispatch(checkAuthTimeout(response.data.expiresIn));  
         })
         .catch(err => {
             console.log(err);

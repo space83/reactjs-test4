@@ -12,12 +12,12 @@ class ProductList extends Component {
     render () {
         let truncate = (
             <ShowMoreText
-            lines={3}
-            more=" "
-            onClick={this.executeOnClick}
-            expanded={false}
-            >               
-                {this.props.description}
+                lines={3}
+                more=" "
+                onClick={this.executeOnClick}
+                expanded={false}
+                >               
+                    {this.props.description}
             </ShowMoreText>
         );
 
@@ -27,7 +27,7 @@ class ProductList extends Component {
                     {this.props.name}
                 </td>
                 <td>
-                {  truncate }
+                    {  truncate }
                 </td>
                 <td>
                     <img className={classes.imgsize} src={this.props.carPhoto} />
