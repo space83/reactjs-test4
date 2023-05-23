@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './GooglePage.css';
-import { Redirect } from 'react-router-dom';
 import Popup from '../../hoc/Popup/Popup';
 
 const GooglePage = (props) =>

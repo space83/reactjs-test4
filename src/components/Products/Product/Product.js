@@ -31,11 +31,11 @@ class Product extends Component {
 
         let pid = this.state.car.map( selectedcar => { return selectedcar.id })        
 
-        if (pid.length ===  0) {
-            console.log('null')
-        } else {
-            console.log('got data');
-        }   
+        // if (pid.length ===  0) {
+        //     console.log('null')
+        // } else {
+        //     console.log('got data');
+        // }   
 
         let page = pid.length ===  0 ? <h1 className={classes.textInvalid}>Invalid Product ID</h1> : (
             this.state.car.map( selectedcar => {

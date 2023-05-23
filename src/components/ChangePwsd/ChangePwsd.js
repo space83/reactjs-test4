@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import classes from './ChangePwsd.css';
 import classes from '../UI.css';
 import * as actions from '../../store/actions/index';
 import Input from '../../components/UI/Input/Input';
@@ -22,7 +21,8 @@ class ChangePwsd extends Component {
                     minLength: 6
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                span: 'Current password'
             },
             newPassword: {
                 elementType: 'input',
@@ -36,7 +36,8 @@ class ChangePwsd extends Component {
                     minLength: 6
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                span: 'New password'
             },
             newPasswordConfirmed: {
                 elementType: 'input',
@@ -50,7 +51,8 @@ class ChangePwsd extends Component {
                     minLength: 6  
                 },
                 valid: false,
-                touched: false
+                touched: false,
+                span: 'Confirm New password'
             },
 
         },
@@ -121,7 +123,9 @@ class ChangePwsd extends Component {
         }
 
         let form = formElementsArray.map( formElement => (
-            <Input
+            <div>
+                <span className={classes.changePasswordLabel}>{formElement.config.span}</span>
+                <Input
                 key={formElement.id}
                 elementType={formElement.config.elementType}
                 elementConfig={formElement.config.elementConfig}
@@ -130,6 +134,8 @@ class ChangePwsd extends Component {
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
                 changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
+            </div>
+
         ) );
 
         let errorMessage = null;
