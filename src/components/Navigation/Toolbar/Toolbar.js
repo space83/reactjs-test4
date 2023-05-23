@@ -2,16 +2,41 @@ import React, { Component } from 'react';
 import classes from './Toolbar.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import GooglePage  from '../../GooglePage/GooglePage';
-import Login from  '../../Login/Login';
-import ForgetPassword from  '../../ForgetPassword/ForgetPassword';
 import NavigationItems from '../NavigationItems/NavigationItems';
-import Logout from  '../../Login/Logout/Logout';
-import Profile from  '../../Profile/Profile';
-import ChangePwsd from  '../../ChangePwsd/ChangePwsd';
 import SideMenu from  '../../SideMenu/SideMenu';
-import Products from  '../../Products/Products';
-import Product from  '../../Products/Product/Product';
-import Unauthorized from  '../../Unauthorized/Unauthorized';
+import asyncComponent from '../../../hoc/asyncComponent/asyncComponent';
+
+const asyncLogin = asyncComponent(() => {
+  return import('../../Login/Login');
+});
+
+const asyncForgetPassword = asyncComponent(() => {
+  return import('../../ForgetPassword/ForgetPassword');
+});
+
+const asyncUnauthorized = asyncComponent(() => {
+  return import('../../Unauthorized/Unauthorized');
+});
+
+const asyncLogout = asyncComponent(() => {
+  return import('../../Login/Logout/Logout');
+});
+
+const asyncMyProfile = asyncComponent(() => {
+  return import('../../Profile/Profile');
+});
+
+const asyncChangePwsd = asyncComponent(() => {
+  return import('../../ChangePwsd/ChangePwsd');
+});
+
+const asyncProducts = asyncComponent(() => {
+  return import('../../Products/Products');
+});
+
+const asyncProduct = asyncComponent(() => {
+  return import('../../Products/Product/Product');
+});
 
 class Toolbar extends Component {
 
@@ -19,21 +44,21 @@ class Toolbar extends Component {
 
     let routes = (
       <Switch>            
-        <Route path = "/Login" exact component={Login} />    
-        <Route path = "/ForgetPwsd" exact component={ForgetPassword} />
+        <Route path = "/Login" exact component={asyncLogin} />    
+        <Route path = "/ForgetPwsd" exact component={asyncForgetPassword} />
         <Route path = "/" exact component={GooglePage} />
-        <Route path = "/" component={Unauthorized} />
+        <Route path = "/" component={asyncUnauthorized} />
     </Switch>
     );
 
     if (this.props.isAuth) {
       routes = (
         <Switch>            
-          <Route path = "/Logout" exact component={Logout} />
-          <Route path = "/MyProfile" exact component={Profile} />
-          <Route path = "/ChangePwsd" exact component={ChangePwsd} />
-          <Route path = "/Product" exact component={Products} />
-          <Route path = "/Product/:id" exact component={Product} />
+          <Route path = "/Logout" exact component={asyncLogout} />
+          <Route path = "/MyProfile" exact component={asyncMyProfile} />
+          <Route path = "/ChangePwsd" exact component={asyncChangePwsd} />
+          <Route path = "/Product" exact component={asyncProducts} />
+          <Route path = "/Product/:id" exact component={asyncProduct} />
       </Switch>
       );
     }
@@ -48,9 +73,9 @@ class Toolbar extends Component {
 
       <div className={classes.content}>        
         {this.props.isAuth ? (
-                  <div className={classes.left}>   
-                    <SideMenu /> 
-                  </div>
+            <div className={classes.left}>   
+              <SideMenu /> 
+            </div>
         ): null}  
 
         <div className={classes.right}> 
@@ -61,6 +86,5 @@ class Toolbar extends Component {
     ) 
   }
 }
-
 
 export default Toolbar;
