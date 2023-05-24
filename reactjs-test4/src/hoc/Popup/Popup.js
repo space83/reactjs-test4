@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import classes from './Popup.css';
 
 const Popup = () => {
@@ -15,18 +15,14 @@ const Popup = () => {
         setShowPopup(false);
     }
 
-    const popupTrigger = {
-        display: showPopup ? "block" : "none"
-    };
-
     return (
         <div>     
-        <div className={classes.Popup} style={popupTrigger}>
-        <h1>WARNING</h1>   
-        <button onClick={handleShow}>Close</button>
+            <div className={ showPopup ? classes.Popup : classes.PopupClosed} >
+                <h1>WARNING</h1>   
+                <button onClick={handleShow}>Close</button>
+            </div>
         </div>
-        </div>
-        );
+    );
 }
  
 export default Popup;
