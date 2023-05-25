@@ -1,19 +1,54 @@
 .Popup {
     position: fixed;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 50%;   
     width: 30%;
     height: 100px;
+    transform: translate(-50%, -50%);
     border: 1px solid #ccc;
     padding: 20px;
     z-Index: 1000;
     text-align: center;
     background-color: lightblue;
     color: red;
-    display: block;
+    /* display: block; */
+    opacity: 1;
+    transition: all 0.3s;
+    animation: openPopup 0.5s forwards;
 }
 
 .PopupClosed {
-    display: none;
+    /* display: none; */
+    /* opacity: 0; */
+    animation: closePopup 0.5s forwards;
+}
+
+@keyframes openPopup {
+    0% {
+        opacity: 0;
+        /* transform: translateY(-100%); */
+    }
+    50% {
+        opacity: 0.8;
+        /* transform: translateY(20%); */
+    }
+    100% {
+        opacity: 1;
+        /* transform: translateY(0); */
+    }
+}
+
+@keyframes closePopup {
+    0% {
+        opacity: 1;
+        /* transform: translateY(-100%); */
+    }
+    50% {
+        opacity: 0.5;
+        /* transform: translateY(20%); */
+    }
+    100% {
+        opacity: 0;
+        /* transform: translateY(0); */
+    }
 }
